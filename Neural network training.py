@@ -1,3 +1,7 @@
+# This project required training a XOR gate with a layer of hidden nodes
+# This project was implemented using the metropolis algorithm to minimize the error in the network
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 
