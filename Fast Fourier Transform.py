@@ -1,3 +1,6 @@
+# This project required the use the the Fast Fourier Transform to find the Fourier Series for test data we were given
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 
