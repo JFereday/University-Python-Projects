@@ -1,3 +1,7 @@
+# This project required using Monte Carlo integration in order to calculate the volume of the unit n-ball.
+# The unit n-ball is a 'ball' that is contained within 1 unit distance of the origin
+# i.e. in 2 dimension, the 'volume' of the n-ball is the area of a circle with a radius of 1
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.special as sp
@@ -15,7 +19,7 @@ analytic_sol = np.pi**(n_array/2) / sp.gamma((n_array/2)+1)
 def MonteSol(n,npts):
     #reset count for each repetition of the function
     count = 0
-    #Set up a 2d array of npts by n. Square all the elements of the array and take the sum of all coloumns
+    #Set up a 2d array of npts (testing points) by n (dimension number). Square all the elements of the array and take the sum of all coloumns
     array = np.random.random((npts,n))
     square_array = np.square(array)
     sum_array = np.sum(square_array,axis=1)
