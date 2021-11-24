@@ -1,3 +1,12 @@
+# One of my larger projects using python at university, this project required using the astropy library in order to calibrate images to find Neptune's moons
+# This required importing all the images into python where I calibrated the images using the follwing method
+# 1. Remove the mean flux value from the overscan region from every pixel in the row 2. Subtract the dark field image to remove CCD artefacts
+# 3. Create a master flat by combining the bias and dark subtracted flat fields and normalise this image.
+# 4. Flat field each image (subract the master flat from the science images)
+
+
+
+
 from astropy.io import fits
 import numpy as np
 import os
