@@ -4,22 +4,17 @@
 # 3. Create a master flat by combining the bias and dark subtracted flat fields and normalise this image.
 # 4. Flat field each image (subract the master flat from the science images)
 
-
-
-
 from astropy.io import fits
 import numpy as np
 import os
 import matplotlib.pyplot as plt
 from scipy.stats import mode
 
-
 master_Flat = []
 dark_10_exp_time = fits.getheader("QUESTdata/darks/dark_10.C22.fits")['EXPTIME']
 dark_180_exp_time = fits.getheader("QUESTdata/darks/dark_180.C22.fits")['EXPTIME']
 dark_10 = fits.getdata("QUESTdata/darks/dark_10.C22.fits")
-dark_180 = fits.getdata("QUESTdata/darks/dark_180.C22.fits")
-
+dark_180 = fits.getdata("QUESTdata/darks/dark_180.C22.fits"
 
 def dark_subtract(dark_data,file_str,Type):
     overscan_width = 40
@@ -64,11 +59,8 @@ def file_calibration(file_shift,new_data):
     
     return calibrated_array
 
-
-
 main_Array = []
 new_sci = []
-
 
 flat_file_directory = "QUESTdata/flats/"
 flat_files = os.listdir(flat_file_directory)
@@ -92,7 +84,6 @@ filewriting(data=master_Flat, new_file_name="masterFlats.fits")
 
 print("Master Flat created!")
 
-
 sci_file_directory = "QUESTdata/science/"
 sci_files = os.listdir(sci_file_directory)
 for i in range(0,len(sci_files)):
@@ -109,10 +100,8 @@ for i in range(0,len(sci_files)):
         
 print("subtracted science files!")
 
-
 #new_files = os.listdir()
 #print(new_files)
 filewriting(data=file_calibration(file_shift=[1317-1291,237-244],new_data=fits.getdata("new 20130911020246s.C22.fits")), new_file_name="calibrated 20130911020246s.C22.fits")
 filewriting(data=file_calibration(file_shift=[1317-1259,237-251],new_data=fits.getdata("new 20130911040543s.C22.fits")), new_file_name="calibrated 20130911040543s.C22.fits")
 print("calibrated science files!")
- 
