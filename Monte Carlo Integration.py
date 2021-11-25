@@ -10,10 +10,8 @@ import scipy.special as sp
 arrayLen = 14
 n_array = np.linspace(2,15,arrayLen)
 
-
 #solve analytic solution for plotting on graph
 analytic_sol = np.pi**(n_array/2) / sp.gamma((n_array/2)+1)
-
 
 #Function for Monte-Carlo solution
 def MonteSol(n,npts):
@@ -33,14 +31,12 @@ def MonteSol(n,npts):
     value = (count*(2**n))/npts
     return value
 
-
 #Create array of Monte-Carlo solutions and fill it using values from the function
 #n has to be a very large number in order to minimize the error at higher values of the dimension
 #between the analytical solution and Monte-Carlo solution
 Monte_sol = np.zeros(arrayLen)
 for j in range(0,arrayLen): 
     Monte_sol[j] = MonteSol(n=int(n_array[j]),npts=1000000)
-    
 
 #Draw a plot of the analytical solution and Monte-Carlo solution
 #Adding a legend and a title to the graph
