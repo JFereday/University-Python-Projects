@@ -1,7 +1,6 @@
 # This project required training a XOR gate with a layer of hidden nodes
 # This project was implemented using the metropolis algorithm to minimize the error in the network
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -18,7 +17,6 @@ import matplotlib.pyplot as plt
 weight = 2.0*np.random.random(8)-1.0
 new_weight = []
 
-
 #Truth table = [[I1],[I2],[I3]]
 inode = np.array([[0,0,0,0,1,1,1,1],[0,0,1,1,0,0,1,1],[0,1,0,1,0,1,0,1]])
 
@@ -26,8 +24,6 @@ desiredoutput = np.array([0,1,1,0,1,0,0,1])
 
 alpha = 0.05
 k = 1.0
-
-
 
 def calculation(w):
     o = np.zeros(np.shape(inode)[1],dtype=float)
@@ -41,7 +37,6 @@ def calculation(w):
     err = 0.5*sum((act(o)-act(desiredoutput))**2)
     #print(err)
     return o, err
-
 
 def total_error(checkarray,output):
     check = 0.5*np.sum((act(checkarray)-act(output))**2)           
@@ -61,17 +56,13 @@ beta = 0.01
 
 error_array = np.zeros(tmax)
 
-
 for t in range(0,tmax):
     beta = beta + 1.0/tmax
-
     new_weight = weightmodify(w=weight)
     new_output, new_error = calculation(w=new_weight) 
-    
     output, error = calculation(w=weight)
     print(np.round(new_output),np.round(output),new_error,error)
     #print(new_error,error)
-    
     #want to minimize error so do sum(expect-calc)     
     if(error>new_error):
         print("shorter, accepting") 
@@ -88,7 +79,6 @@ for t in range(0,tmax):
         else:
             print("longer, not accepting ")
             error_array[t] = error
-            
     
 plt.plot(error_array)
 
