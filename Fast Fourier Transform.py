@@ -1,20 +1,15 @@
 # This project required the use the the Fast Fourier Transform to find the Fourier Series for test data we were given
 
-
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 #setup arrays for x and y based on data given in coursework document
 x = np.linspace(0,(15*np.pi/8),16)
 x_spacing = x[1]-x[0]
 y = np.array([-0.2,-0.1,0.3,0.2,0.4,0.5,0.0,-0.4,-0.4,-0.2,0.1,0.2,0.2,0.1,0.1,-0.1])
 
-
-
 #Coefficients calculated using numpy module
 a = np.fft.fft(y)
-
 
 #Set up array for continuous formula by creating an array with large number of points
 array_length = 100
